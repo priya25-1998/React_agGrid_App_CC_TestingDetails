@@ -62,43 +62,46 @@ function App() {
     },
 
     {
-      field: "Insight",
-      headerName: "Insight",
+      field: "Testing Frequency",
+      headerName: "Testing Frequency",
       chartDataType: "category",
       filter: true,
-      tooltipField: "Insight",
+      tooltipField: "Testing Frequency",
       enableRowGroup: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
     },
     {
-      field: "Tested LoB",
-      headerName: "Tested LoB",
+      field: "Due Date",
+      headerName: "Due Date",
       chartDataType: "category",
-      filter: "agSetColumnFilter",
-      tooltipField: "Tested LoB",
+      //filter: "agSetColumnFilter",
+      tooltipField: "Due Date",
       enableRowGroup: true,
+      filter: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
     },
     {
-      field: "Total Test Count",
-      headerName: "Total Test Count",
+      field: "Test Result",
+      headerName: "Test Result",
       chartDataType: "series",
-      tooltipField: "Total Test Count",
+      tooltipField: "Test Result",
       enableRowGroup: true,
+      filter: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
     },
     {
-      field: "Duplicate/Similar Count",
-      headerName: "Duplicate/Similar Count",
+      field: "Duration (Days)",
+      headerName: "Duration (Days)",
       chartDataType: "series",
-      tooltipField: "Duplicate/Similar Count",
+      tooltipField: "Duration (Days)",
       enableRowGroup: true,
+      filter: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
@@ -107,7 +110,7 @@ function App() {
 
   useEffect(() => {
     const object_URL =
-      "https://ms-optimizer.s3.us-east-2.amazonaws.com/Sample/Duplicate_controls_within_same_Lob.csv";
+      "https://ms-optimizer.s3.us-east-2.amazonaws.com/Sample/control_testing_details.csv";
     fetch(object_URL)
       .then((response) => response.text())
       .then((csvData) => {
@@ -197,7 +200,7 @@ function App() {
       className="ag-theme-alpine"
       style={{ height: 500, width: 1350 }}
     >
-      <h2>Duplicate Controls within Same LOB</h2>
+      <h2>Control Testing Details For Selected Control</h2>
       <AgGridReact
         rowData={rowData}
         columnDefs={columnDefs}
