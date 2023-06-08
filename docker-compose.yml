@@ -25,7 +25,7 @@ services:
       - aggrid
     ports:
       - "80:80"
-      - "443:443"  
+      - "8443:443"  
     networks:
       - aggrid-network
 
