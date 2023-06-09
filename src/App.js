@@ -20,20 +20,44 @@ function App() {
   const enableCharts = true;
   const enableRangeSelection = true;
   const enableRangeHandle = true;
+  const rowHeight = 100;
 
   // Define the columns and Rows
 
   const [columnDefs] = useState([
+
+    {
+      field: "Primary Control",
+      headerName: "Primary Control",
+      chartDataType: "category",
+      filter: true,
+      tooltipField: "Primary Control",
+      headerCheckboxSelection: true,
+      enableRowGroup: true,
+      checkboxSelection: true,
+      rowDrag: true,
+      enablePivot: true,
+      enableValue: true,
+      //aggFunc: 'count'
+    },
+    {
+      field: "Insight",
+      headerName: "Insight",
+      chartDataType: "category",
+      filter: true,
+      tooltipField: "Insight",
+      enableRowGroup: true,
+      enablePivot: true,
+      enableValue: true,
+      //aggFunc: 'count'
+    },
     {
       field: "Control ID",
       headerName: "Control ID",
       chartDataType: "category",
       filter: true,
       tooltipField: "Control ID",
-      headerCheckboxSelection: true,
       enableRowGroup: true,
-      checkboxSelection: true,
-      rowDrag: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
@@ -45,6 +69,7 @@ function App() {
       chartDataType: "category",
       filter: true,
       enableRowGroup: true,
+      wrapText: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
@@ -56,6 +81,7 @@ function App() {
       chartDataType: "category",
       filter: true,
       enableRowGroup: true,
+      wrapText: true,
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
@@ -94,6 +120,11 @@ function App() {
       enablePivot: true,
       enableValue: true,
       //aggFunc: 'count'
+      cellStyle: (params) => {
+        if (params.value === "Fail") {
+          return { fontWeight: "bold",color: "Red"};
+        }
+      }
     },
     {
       field: "Duration (Days)",
@@ -110,7 +141,7 @@ function App() {
 
   useEffect(() => {
     const object_URL =
-      "https://ms-optimizer.s3.us-east-2.amazonaws.com/Sample/control_testing_details.csv";
+      "https://ms-optimizer.s3.us-east-2.amazonaws.com/Sample/Duplicate_controls_data_Modified.csv";
     fetch(object_URL)
       .then((response) => response.text())
       .then((csvData) => {
@@ -142,13 +173,16 @@ function App() {
     return {
       sortable: true,
       flex: 1,
-      minWidth: 270,
+      minWidth: 500,
       resizable: true,
       floatingFilter: true,
       enablePivot: true,
       autoHeaderHeight: true,
     };
   }, []);
+   
+  
+  
 
   // Define the Sidebar Parameters
 
@@ -218,6 +252,8 @@ function App() {
         statusBar={statusBar}
         suppressBrowserResizeObserver={true}
         pivotMode={false}
+        rowHeight={rowHeight}
+        
       />
     </div>
   );
