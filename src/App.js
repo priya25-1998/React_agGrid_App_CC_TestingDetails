@@ -20,7 +20,7 @@ function App() {
   const enableCharts = true;
   const enableRangeSelection = true;
   const enableRangeHandle = true;
-  const rowHeight = 100;
+  //const rowHeight = 100;
 
   // Define the columns and Rows
 
@@ -234,7 +234,7 @@ function App() {
       className="ag-theme-alpine"
       style={{ height: 500, width: 1350 }}
     >
-      <h2>Control Testing Details For Selected Control</h2>
+      <h2>DUPLICATE CONTROLS WITHIN SAME LOB</h2>
       <AgGridReact
         rowData={rowData}
         columnDefs={columnDefs}
@@ -252,7 +252,7 @@ function App() {
         statusBar={statusBar}
         suppressBrowserResizeObserver={true}
         pivotMode={false}
-        rowHeight={rowHeight}
+        //rowHeight={rowHeight}
         
       />
     </div>
