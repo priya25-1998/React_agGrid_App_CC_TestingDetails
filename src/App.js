@@ -38,6 +38,7 @@ function App() {
       rowDrag: true,
       enablePivot: true,
       enableValue: true,
+      width: 200,
       //aggFunc: 'count'
     },
     {
@@ -49,6 +50,7 @@ function App() {
       enableRowGroup: true,
       enablePivot: true,
       enableValue: true,
+      width: 250,
       //aggFunc: 'count'
     },
     {
@@ -60,6 +62,7 @@ function App() {
       enableRowGroup: true,
       enablePivot: true,
       enableValue: true,
+      width: 200,
       //aggFunc: 'count'
     },
     {
@@ -72,6 +75,7 @@ function App() {
       wrapText: true,
       enablePivot: true,
       enableValue: true,
+      width: 500,
       //aggFunc: 'count'
     },
     {
@@ -84,6 +88,7 @@ function App() {
       wrapText: true,
       enablePivot: true,
       enableValue: true,
+      width: 500,
       //aggFunc: 'count'
     },
 
@@ -96,6 +101,7 @@ function App() {
       enableRowGroup: true,
       enablePivot: true,
       enableValue: true,
+      width: 100,
       //aggFunc: 'count'
     },
     {
@@ -108,6 +114,7 @@ function App() {
       filter: true,
       enablePivot: true,
       enableValue: true,
+      width: 130,
       //aggFunc: 'count'
     },
     {
@@ -119,6 +126,7 @@ function App() {
       filter: true,
       enablePivot: true,
       enableValue: true,
+      width: 130,
       //aggFunc: 'count'
       cellStyle: (params) => {
         if (params.value === "Fail") {
@@ -135,6 +143,7 @@ function App() {
       filter: true,
       enablePivot: true,
       enableValue: true,
+      width: 150,
       //aggFunc: 'count'
     },
   ]);
@@ -172,8 +181,9 @@ function App() {
   const defaultColDef = useMemo(() => {
     return {
       sortable: true,
-      flex: 1,
-      minWidth: 500,
+      //flex: 1,
+      //width: 500,
+      //minWidth: 500,
       resizable: true,
       floatingFilter: true,
       enablePivot: true,
@@ -253,6 +263,7 @@ function App() {
         suppressBrowserResizeObserver={true}
         pivotMode={false}
         //rowHeight={rowHeight}
+        
         
       />
     </div>
